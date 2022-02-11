@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <script src="customer.js"></script>
+    <link href="cus.css" rel="stylesheet">
+</head>
+<body ng-app="Mycus">
+    <div ng-controller="cusCtrl">
+        Rows to Display:<input type="number" step="1" min="0" max="6" ng-model="rowlimit"/><br><br>
+        Search:<input type="text" placeholder="Search Customer" ng-model="search"><br><br>
+        Enter the Number of characters:<input type="text" ng-model="limit"/><br><br>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>DOB</th>
+        <th>Gender</th>
+        <th>Amount(number)</th>
+    </tr>
+    <tbody>
+        <tr ng-repeat="cus in customers|limitTo:rowlimit|filter:search">
+            <td>{{cus.name|myfilter:limit}}</td>
+            <td>{{cus.dob|date:"dd/MM/yyyy"}}</td>
+            <td>{{cus.gender|lowercase}}</td>
+            <td>{{cus.amount|number:0}}</td>
+
+        </tr>
+    </tbody>
+</table>
+
+    </div>
+    
+</body>
+</html>
