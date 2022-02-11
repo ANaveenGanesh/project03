@@ -14,7 +14,7 @@ angular.module("User",[])
 .controller("userCtrl",function($scope)
 {
     var users=[
-        {name:'William,,dob:new Date("November 5, 1932"),Gender:"Male",Salary:4000},
+        {name:'William,dob:new Date("November 5, 1932"),Gender:"Male",Salary:4000},
         {name:'Jack',dob:new Date("December 6,1931"),Gender:"Male",Salary:2000},
     ];
     $scope.users=users;
